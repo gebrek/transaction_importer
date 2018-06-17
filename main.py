@@ -114,6 +114,12 @@ class CatBank:
     def recognize_transaction():
         pass
 
+    known_accts = [
+        ("UWM RESTAU MILWAUKEE", "UWM Restaurant Ops",
+         "Expenses:Food:DiningOut"),
+        ("EAST GARDE", "East Garden", "Expenses:Food:DiningOut"),
+    ]
+
     def read_account_export(filename):
         with open(filename) as csvfile:
             reader = csv.DictReader(csvfile)
@@ -128,12 +134,14 @@ class CatBank:
 
 # General utility functions
 
+
 def mdy_to_ymd(datestr):
     lst = datestr.split(sep='/')
     year = lst.pop()
     lst = list(map(lambda x: x.zfill(2), lst))
     lst.insert(0, year)
     return '/'.join(lst)
+
 
 def norm_neg(amount):
     if amount.startswith('('):
@@ -145,10 +153,6 @@ def norm_usd(val):
     if type(val) == int or type(val) == float:
         return "${}".format(val)
 
-known_accts = [
-    ("UWM RESTAU MILWAUKEE", "UWM Restaurant Ops", "Expenses:Food:DiningOut"),
-    ("EAST GARDE", "East Garden", "Expenses:Food:DiningOut"),
-]
 
 # CatBank.read_account_export('export.csv')
 UWCU.translate_export("Assets:Checking", "History.csv", "auto.ledger")
