@@ -1,5 +1,6 @@
 import csv
 
+
 class LedgerEntry:
     def __init__(self, date, desc, accts, cmt):
         self.date = date
@@ -65,9 +66,7 @@ class UWCU:
         le = LedgerEntry(
             mdy_to_ymd(row['Posted Date']),
             row['Description'],
-            [(pri_acct, norm_neg(row['Amount']))
-             # "Auto:{}".format(row['Category'].replace(' ', '')),
-             ],
+            [(pri_acct, norm_neg(row['Amount']))],
             '',
         )
         le.recognize(UWCU.read_rules())
@@ -89,32 +88,6 @@ class UWCU:
         with open(outfile, 'w') as fh:
             for t in transactions:
                 fh.write(str(t))
-
-    def read_account_export(filename):
-        with open(filename) as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                print(
-                    UWCU.fmt_str.format(
-                        date=mdy_to_ymd(row['Posted Date']),
-                        desc=row['Description'],  # [:15],
-                        pri_acct='Assets:Checking',
-                        val=norm_neg(row['Amount']),
-                        sec_acct="Auto:" + row['Category'].replace(' ', '')))
-
-
-def norm_neg(amount):
-    if amount.startswith('('):
-        return "-" + amount[1:-1]
-    return amount
-
-
-def norm_usd(val):
-    if type(val) == int or type(val) == float:
-        return "${}".format(val)
-
-
-#     elif type(val) == str:
 
 
 class CatBank:
@@ -153,6 +126,8 @@ class CatBank:
                     print('??? Unknown transaction type ???')
 
 
+# General utility functions
+
 def mdy_to_ymd(datestr):
     lst = datestr.split(sep='/')
     year = lst.pop()
@@ -160,6 +135,15 @@ def mdy_to_ymd(datestr):
     lst.insert(0, year)
     return '/'.join(lst)
 
+def norm_neg(amount):
+    if amount.startswith('('):
+        return "-" + amount[1:-1]
+    return amount
+
+
+def norm_usd(val):
+    if type(val) == int or type(val) == float:
+        return "${}".format(val)
 
 known_accts = [
     ("UWM RESTAU MILWAUKEE", "UWM Restaurant Ops", "Expenses:Food:DiningOut"),
