@@ -2,11 +2,16 @@ import csv
 
 
 class LedgerEntry:
-    def __init__(self, date, desc, accts, cmt):
+    """LedgerEntry objects are individual records of transactions. They
+should have a date, a description, and a list of accounts. Optionally
+a comment. They will be 'recognized' if they have successfully been
+checked against set of rules and translated."""
+
+    def __init__(self, date, desc, accts):
         self.date = date
         self.desc = desc
         self.accts = accts
-        self.cmt = cmt
+        self.cmt = ''
         self.recognized = False
 
     def __str__(self):
@@ -48,16 +53,20 @@ list of accounts should be at most one str, and the rest tuples."""
 
 class UWCU:
     fmt_str = "{date} {desc}\n    {pri_acct}  {val}\n    {sec_acct}\n"
+    rules_file = 'uwcu_rules.csv'
 
+    # The following two functions should be close to generalized
+    # already for use in other exporter classes. Should probably make
+    # a parent class which all the specialized exporters will inherit from
     def write_rules(rules):
-        with open('uwcu_rules.csv', 'w') as out:
+        with open(UWCU.rules_file, 'w') as out:
             csv_out = csv.writer(out)
             csv_out.writerow(['MatchString', 'Description', 'Account'])
             for rule in rules:
                 csv_out.writerow(rule)
 
     def read_rules():
-        with open('uwcu_rules.csv', 'r') as csvfile:
+        with open(UWCU.rules_file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
             return [(row['MatchString'], row['Description'], row['Account'])
                     for row in reader]
@@ -67,7 +76,6 @@ class UWCU:
             mdy_to_ymd(row['Posted Date']),
             row['Description'],
             [(pri_acct, norm_neg(row['Amount']))],
-            '',
         )
         le.recognize(UWCU.read_rules())
         if not le.recognized:
@@ -83,6 +91,8 @@ class UWCU:
             return transactions
 
     def translate_export(pri_acct, infile, outfile):
+        """translate_export is the entry point for reading, and writing from a raw csv
+export file to a useful ledger file."""
         transactions = UWCU.recognize_file(pri_acct, infile)
         [t.recognize(UWCU.read_rules()) for t in transactions]
         with open(outfile, 'w') as fh:
