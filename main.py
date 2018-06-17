@@ -1,6 +1,4 @@
 import csv
-import pickle
-
 
 class LedgerEntry:
     def __init__(self, date, desc, accts, cmt):
@@ -63,10 +61,6 @@ class UWCU:
             return [(row['MatchString'], row['Description'], row['Account'])
                     for row in reader]
 
-    def load_rules():
-        with open('uwcu.pickle', 'rb') as f:
-            return pickle.load(f)
-
     def recognize_entry(pri_acct, row):
         le = LedgerEntry(
             mdy_to_ymd(row['Posted Date']),
@@ -76,7 +70,7 @@ class UWCU:
              ],
             '',
         )
-        le.recognize(UWCU.load_rules())
+        le.recognize(UWCU.read_rules())
         if not le.recognized:
             le.accts.append("Auto:{}".format(row['Category'].replace(' ', '')))
         return le
@@ -91,7 +85,7 @@ class UWCU:
 
     def translate_export(pri_acct, infile, outfile):
         transactions = UWCU.recognize_file(pri_acct, infile)
-        [t.recognize(UWCU.load_rules()) for t in transactions]
+        [t.recognize(UWCU.read_rules()) for t in transactions]
         with open(outfile, 'w') as fh:
             for t in transactions:
                 fh.write(str(t))
