@@ -100,11 +100,11 @@ export file to a useful ledger file."""
                 fh.write(str(t))
 
 
-class CatBank:
+class AssociatedBank:
     fmt_str = "\n{date} {desc}\n    {pos_acct}  ${val}\n    {neg_acct}\n"
 
     def credit(row):
-        return CatBank.fmt_str.format(
+        return AssociatedBank.fmt_str.format(
             date=mdy_to_ymd(row['Date']),
             desc=row['Description'],
             pos_acct='Accounts:Checking',
@@ -113,7 +113,7 @@ class CatBank:
             cmt='')
 
     def debit(row):
-        return CatBank.fmt_str.format(
+        return AssociatedBank.fmt_str.format(
             date=mdy_to_ymd(row['Date']),
             desc=row['Description'],
             pos_acct='Accounts:Checking',
@@ -135,9 +135,9 @@ class CatBank:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if row['Type'] == 'CREDIT':
-                    print(CatBank.credit(row))
+                    print(AssociatedBank.credit(row))
                 elif row['Type'] == 'DEBIT':
-                    print(CatBank.debit(row))
+                    print(AssociatedBank.debit(row))
                 else:
                     print('??? Unknown transaction type ???')
 
