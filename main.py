@@ -102,6 +102,9 @@ export file to a useful ledger file."""
 
 class AssociatedBank:
     fmt_str = "\n{date} {desc}\n    {pos_acct}  ${val}\n    {neg_acct}\n"
+    rules_file = 'associated_bank_rules.csv'
+
+    # def read_rules(
 
     def credit(row):
         return AssociatedBank.fmt_str.format(

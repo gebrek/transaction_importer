@@ -1,0 +1,3 @@
+[submodule "ledger-parse"]
+	path = ledger-parse
+	url = https://github.com/Tagirijus/ledger-parse.git
