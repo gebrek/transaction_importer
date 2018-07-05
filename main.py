@@ -1,6 +1,24 @@
 import csv
 
 
+class LedgerAcct(object):
+    def __init__(self, name, amount=None):
+        self.name = name
+        self.amount = amount
+
+    def __str__(self):
+        if self.amount:
+            return "{}  {}".format(self.name, self.amount)
+        else:
+            return self.name
+
+    def __repr__(self):
+        if self.amount:
+            return "<{} {}>".format(self.name, self.amount)
+        else:
+            return "<{}>".format(self.name)
+
+
 class LedgerEntry:
     """LedgerEntry objects are individual records of transactions. They
 should have a date, a description, and a list of accounts. Optionally
@@ -11,33 +29,20 @@ checked against set of rules and translated."""
         self.date = date
         self.desc = desc
         self.accts = accts
-        self.cmt = ''
+        self.cmt = None
         self.recognized = False
 
     def __str__(self):
-        def prn_acct(acct):
-            """Expects either a tuple form (str, num) representing the account and
-transaction amount, or a str representing the transaction. An entry's
-list of accounts should be at most one str, and the rest tuples."""
-            if type(acct) == tuple:
-                ac, v = acct
-                return "    {}  {}".format(ac, v)
-            elif type(acct) == str:
-                return "    " + acct
-            else:
-                return ''
+        fmtstr = "{}{}{} {}\n    {}\n"
+        return fmtstr.format(self.date,
+                             " * " if self.recognized else " ",
+                             self.desc,
+                             "  ;{}".format(self.cmt) if self.cmt else '',
+                             '\n    '.join(map(str, self.accts)))
 
-        if self.cmt is '':
-            return "{date} {desc}\n{accts}\n".format(
-                date=self.date,
-                desc=self.desc,
-                accts='\n'.join(list(map(prn_acct, self.accts))))
-        else:
-            return "\n{date} * {desc}\n    ; {cmt}\n{accts}\n".format(
-                cmt=self.cmt,
-                date=self.date,
-                desc=self.desc,
-                accts='\n'.join(list(map(prn_acct, self.accts))))
+    def __repr__(self):
+        fmtstr = "<{}>"
+        return fmtstr.format(self.desc)
 
     def recognize(self, rules):
         if self.recognized is True:
@@ -51,8 +56,12 @@ list of accounts should be at most one str, and the rest tuples."""
                 break
 
 
+class LedgerJournal:
+    def __init__(self, entries):
+        self.entries = entries
+
+
 class UWCU:
-    fmt_str = "{date} {desc}\n    {pri_acct}  {val}\n    {sec_acct}\n"
     rules_file = 'uwcu_rules.csv'
 
     # The following two functions should be close to generalized
@@ -75,7 +84,7 @@ class UWCU:
         le = LedgerEntry(
             mdy_to_ymd(row['Posted Date']),
             row['Description'],
-            [(pri_acct, norm_neg(row['Amount']))],
+            [LedgerAcct(pri_acct, normalize_cur(row['Amount']))],
         )
         le.recognize(UWCU.read_rules())
         if not le.recognized:
@@ -88,15 +97,15 @@ class UWCU:
             transactions = [
                 UWCU.recognize_entry(pri_acct, row) for row in reader
             ]
-            return transactions
+            return LedgerJournal(transactions)
 
     def translate_export(pri_acct, infile, outfile):
         """translate_export is the entry point for reading, and writing from a raw csv
 export file to a useful ledger file."""
-        transactions = UWCU.recognize_file(pri_acct, infile)
-        [t.recognize(UWCU.read_rules()) for t in transactions]
+        journal = UWCU.recognize_file(pri_acct, infile)
+        [t.recognize(UWCU.read_rules()) for t in journal.entries]
         with open(outfile, 'w') as fh:
-            for t in transactions:
+            for t in journal.entries:
                 fh.write(str(t))
 
 
@@ -156,10 +165,16 @@ def mdy_to_ymd(datestr):
     return '/'.join(lst)
 
 
-def norm_neg(amount):
+def normalize_cur(amount):
+    # amount = amount.replace("$", "")
+    # print(amount)
     if amount.startswith('('):
         return "-" + amount[1:-1]
     return amount
+
+
+def detect_cur(amount):
+    pass
 
 
 def norm_usd(val):
@@ -168,6 +183,6 @@ def norm_usd(val):
 
 
 # CatBank.read_account_export('export.csv')
-UWCU.translate_export("Assets:Checking", "History.csv", "auto.ledger")
-UWCU.translate_export("Assets:Savings", "History-Savings.csv",
-                      "auto-savings.ledger")
+# UWCU.translate_export("Assets:Checking", "History.csv", "auto1.ledger")
+# UWCU.translate_export("Assets:Savings", "History-Savings.csv",
+#                       "auto1-savings.ledger")
