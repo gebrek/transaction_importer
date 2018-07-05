@@ -63,6 +63,7 @@ class LedgerJournal:
 
 class UWCU:
     rules_file = 'uwcu_rules.csv'
+    rules = None
 
     # The following two functions should be close to generalized
     # already for use in other exporter classes. Should probably make
@@ -74,11 +75,19 @@ class UWCU:
             for rule in rules:
                 csv_out.writerow(rule)
 
-    def read_rules():
+    def _force_read_rules():
         with open(UWCU.rules_file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
-            return [(row['MatchString'], row['Description'], row['Account'])
-                    for row in reader]
+            UWCU.rules = [(row['MatchString'], row['Description'],
+                           row['Account']) for row in reader]
+
+    def read_rules():
+        # Memoize!
+        if UWCU.rules:
+            return UWCU.rules
+        else:
+            UWCU._force_read_rules()
+            return UWCU.rules
 
     def recognize_entry(pri_acct, row):
         le = LedgerEntry(
@@ -110,10 +119,20 @@ export file to a useful ledger file."""
 
 
 class AssociatedBank:
-    fmt_str = "\n{date} {desc}\n    {pos_acct}  ${val}\n    {neg_acct}\n"
     rules_file = 'associated_bank_rules.csv'
 
-    # def read_rules(
+    def read_rules():
+        with open(AssociatedBank.rules_file, 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+            return [(row['MatchString'], row['Description'], row['Account'])
+                    for row in reader]
+
+    def recognize_entry(pri_acct, row):
+        le = LedgerEntry(
+            mdy_to_ymd(row['Date']),
+            row['Description'],
+            None)
+        return le
 
     def credit(row):
         return AssociatedBank.fmt_str.format(
