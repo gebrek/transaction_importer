@@ -34,11 +34,10 @@ checked against set of rules and translated."""
 
     def __str__(self):
         fmtstr = "{}{}{} {}\n    {}\n"
-        return fmtstr.format(self.date,
-                             " * " if self.recognized else " ",
-                             self.desc,
-                             "  ;{}".format(self.cmt) if self.cmt else '',
-                             '\n    '.join(map(str, self.accts)))
+        return fmtstr.format(self.date, " * " if self.recognized else " ",
+                             self.desc, "  ;{}".format(self.cmt)
+                             if self.cmt else '', '\n    '.join(
+                                 map(str, self.accts)))
 
     def __repr__(self):
         fmtstr = "<{}>"
@@ -120,57 +119,46 @@ export file to a useful ledger file."""
 
 class AssociatedBank:
     rules_file = 'associated_bank_rules.csv'
+    rules = None
 
-    def read_rules():
+    def _force_read_rules():
         with open(AssociatedBank.rules_file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
-            return [(row['MatchString'], row['Description'], row['Account'])
-                    for row in reader]
+            AssociatedBank.rules = [(row['MatchString'],
+                                     row['Description'],
+                                     row['Account']) for row in reader]
+
+    def read_rules():
+        # Memoize!
+        if AssociatedBank.rules:
+            return AssociatedBank.rules
+        else:
+            AssociatedBank._force_read_rules()
+            return AssociatedBank.rules
 
     def recognize_entry(pri_acct, row):
         le = LedgerEntry(
-            mdy_to_ymd(row['Date']),
-            row['Description'],
-            None)
+            mdy_to_ymd(row['Date']), row['Description'],
+            [LedgerAcct(pri_acct, "$" + row[row['Type'].title()])])
+        le.recognize(AssociatedBank.read_rules())
+        if not le.recognized:
+            le.accts.append("Auto:Uncategorized")
         return le
 
-    def credit(row):
-        return AssociatedBank.fmt_str.format(
-            date=mdy_to_ymd(row['Date']),
-            desc=row['Description'],
-            pos_acct='Accounts:Checking',
-            val=row['Credit'],
-            neg_acct='Expenses:Uncategorized',
-            cmt='')
-
-    def debit(row):
-        return AssociatedBank.fmt_str.format(
-            date=mdy_to_ymd(row['Date']),
-            desc=row['Description'],
-            pos_acct='Accounts:Checking',
-            val=row['Debit'],
-            neg_acct='Expenses:Uncategorized',
-            cmt='')
-
-    def recognize_transaction():
-        pass
-
-    known_accts = [
-        ("UWM RESTAU MILWAUKEE", "UWM Restaurant Ops",
-         "Expenses:Food:DiningOut"),
-        ("EAST GARDE", "East Garden", "Expenses:Food:DiningOut"),
-    ]
-
-    def read_account_export(filename):
+    def recognize_file(pri_acct, filename):
         with open(filename) as csvfile:
             reader = csv.DictReader(csvfile)
-            for row in reader:
-                if row['Type'] == 'CREDIT':
-                    print(AssociatedBank.credit(row))
-                elif row['Type'] == 'DEBIT':
-                    print(AssociatedBank.debit(row))
-                else:
-                    print('??? Unknown transaction type ???')
+            transactions = [
+                AssociatedBank.recognize_entry(pri_acct, row) for row in reader
+            ]
+            return LedgerJournal(transactions)
+
+    def translate_export(pri_acct, infile, outfile):
+        journal = AssociatedBank.recognize_file(pri_acct, infile)
+        [t.recognize(AssociatedBank.read_rules()) for t in journal.entries]
+        with open(outfile, 'w') as fh:
+            for t in journal.entries:
+                fh.write(str(t))
 
 
 # General utility functions
