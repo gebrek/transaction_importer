@@ -124,8 +124,7 @@ class AssociatedBank:
     def _force_read_rules():
         with open(AssociatedBank.rules_file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
-            AssociatedBank.rules = [(row['MatchString'],
-                                     row['Description'],
+            AssociatedBank.rules = [(row['MatchString'], row['Description'],
                                      row['Account']) for row in reader]
 
     def read_rules():
