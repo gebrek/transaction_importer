@@ -1,0 +1,123 @@
+MatchString,Description,Account
+AMAZON,Amazon,Expenses:Digital:Amazon
+SOLLY,Solly's Grille,Expenses:Food:DiningOut:Burgers
+NETFLIX,Netflix,Expenses:Digital:Entertainment
+QDOBA,Qdoba,Expenses:Food:DiningOut:Mexi
+UWM RESTAU,UWM Restaurant Ops,Expenses:Food:DiningOut:UWM
+UNIVERSITY OF WI DIR DEP,UWM Paycheck,Income:Paycheck
+LOST VALLE,Lost Valley,Expenses:Food:Alcohol
+UBER,Uber,Expenses:Transport:Taxi:Uber
+Uber,Uber,Expenses:Transport:Taxi:Uber
+SAFEHOUSE,Safehouse,Expenses:Food:DiningOut:Safehouse
+CULVER,Culver's,Expenses:Food:DiningOut:Burgers
+JIMMY JOHN,Jimmy John's,Expenses:Food:DiningOut:Subs
+WINGS OVER,Wings Over,Expenses:Food:DiningOut:Chicken
+TRADER JOE,Trader Joe's,Expenses:Food:Grocery:TraderJoes
+METRO MARK,Metro Market,Expenses:Food:Grocery:Metro
+HUAN XI,Huan Xi,Expenses:Food:DiningOut:Chinese
+SUBWAY,Subway,Expenses:Food:DiningOut:Subs
+HALAL,The Halal Guys,Expenses:Food:DiningOut:HalalGuys
+NORRIS HEA,Norris Health Center,Expenses:Health
+HARDEE'S,Hardee's,Expenses:Food:DiningOut:Burgers
+ARBYS,Arby's,Expenses:Food:DiningOut:Burgers
+KROGER,Kroger,Expenses:Food:Grocery:Kroger
+STARBUCKS,Starbuck's,Expenses:Food:Coffee
+CAFE HOLLA,Cafe Hollander,Expenses:Food:DiningOut:Cafe
+EAST GARDE,East Garden,Expenses:Food:DiningOut:Chinese
+COLECTIVO,Colectivo,Expenses:Food:Coffee
+DAVIDS BRIDAL,David's Bridal,Expenses:Beauty:Clothing
+ULTA,Ulta,Expenses:Beauty:Cosmetics
+UPS STORE,UPS Store,Expenses:Mail
+OTTO'S WIN,Otto's Wine & Spirits,Expenses:Food:Alcohol
+WHOLEFDS,Whole Foods,Expenses:Food:Grocery:WholeFoods
+THE CUTTIN,The Cutting Group,Expenses:Beauty:Haircut
+ELLI M PAY.FB.COM,Elli FB Pay,Expenses:Gifts:Elli
+CHRIST PAY.FB.COM,Christian FB Pay,Expenses:Gifts:Christian
+Elli M FB,Elli FB Pay,Expenses:Gifts:Elli
+GOODWILL,Goodwill,Expenses:Beauty:Clothing
+OAKLAND GY,Oakland Gyros,Expenses:Food:DiningOut:OaklandGyros
+BELAIR,Belair,Expenses:Food:DiningOut:Mexi
+PICK N SAV,Pick'n'Save,Expenses:Food:Grocery:PickNSave
+ANODYNE,Anodyne,Expenses:Food:Coffee
+NOODLES &,Noodles & Co.,Expenses:Food:DiningOut:Noodles
+SALS PIZZA,Sal's Pizza,Expenses:Food:DiningOut:Pizza
+DUNKIN,Dunkin' Doughnuts,Expenses:Food:Coffee
+PHO 43,Pho 43,Expenses:Food:DiningOut:Pho
+BUFFALO,Buffalo Wild Wings,Expenses:Food:DiningOut:Chicken
+TACO BELL,Taco Bell,Expenses:Food:DiningOut:Mexi
+STEAM,Steam,Expenses:Digital:Games
+MA FISCHER,Ma Fischer's,Expenses:Food:DiningOut:MaFischer
+FOREV,Forever 21,Expenses:Beauty:Clothing
+PAYLESS SH,Payless Shoes,Expenses:Beauty:Clothing
+Barnes an,Barnes & Noble,Expenses:Education:Books
+BARNES,Barnes & Noble,Expenses:Education:Books
+H&M,H&M,Expenses:Beauty:Clothing
+BOSWELL BO,Boswell Books,Expenses:Education:Books
+FUSHIMI SU,Fushimi,Expenses:Food:DiningOut:Japanese
+YOKOHAMA,Yokohama,Expenses:Food:DiningOut:Japanese
+CRAVE CAFE,Crave Cafe,Expenses:Food:DiningOut:Burgers
+MCDONALD'S,McDonald's,Expenses:Food:DiningOut:Burgers
+PAPA JOHNS,Papa John's,Expenses:Food:DiningOut:Pizza
+Q-TICLES,Q-Ticles,Expenses:Beauty:Cosmetics
+OAKLAND CA,Oakland Cafe,Expenses:Food:DiningOut:Cafe
+WOODMAN,Woodman's,Expenses:Food:Grocery:Woodmans
+TAX PRODUCTS,Tax Products,Income:Tax
+CRACKER B,Cracker Barrell,Expenses:Gifts
+PIGGLY WIG,Piggly Wiggly,Expenses:Food:Grocery:PigWig
+MONSTER PI,Monster Pizza,Expenses:Food:DiningOut:Pizza
+ALDI,ALDI,Expenses:Food:Grocery:ALDI
+SENDIK,Sendik's,Expenses:Food:Grocery:Sendiks
+TWC*TIME,Time Warner Cable,Expenses:Digital:Service
+THE DOGG,The Dogg Haus,Expenses:Food:DiningOut:Dogs
+GILBERT LI,Gilbert's Liquor,Expenses:Food:Alcohol
+CHURCH'S,Church's Chicken,Expenses:Food:Chicken
+GEORGE WEB,George Webb's,Expenses:Food:DiningOut:Burgers
+WILLIAM HO,William Ho's,Expenses:Food:DiningOut:Chinese
+WI DEPT REV,WI Dept. of Revenue,Income:Tax
+LUCKY S PH,Lucky's Pho,Expenses:Food:DiningOut:Pho
+SPOTIFY,Spotify,Expenses:Digital:Music
+COUSINS SU,Cousin's Subs,Expenses:Food:DiningOut:Subs
+SEPHORA,Sephora,Expenses:Beauty:Cosmetics
+SIX FLAGS,Six Flags,Expenses:Amusement:Park
+VICTORIA'S,Victoria's Secret,Expenses:Beauty:Clothing
+KOPPAS,Koppa's,Expenses:Food:Grocery:Koppas
+PIZZA,Pizza,Expenses:Food:DiningOut:Pizza
+AMERICAN EAGLE,American Eagle,Expenses:Beauty:Clothing
+BOSTON ST,Boston Store,Expenses:Beauty:Clothing
+COMET CAFE,Comet Cafe,Expenses:Food:DiningOut:Cafe
+CHINESE,Chinese,Expenses:Food:DiningOut:Chinese
+JCPENNEY,JC Penney,Expenses:Beauty:Clothing
+IRS,IRS,Income:Tax
+CHIPOTLE,Chipotle,Expenses:Food:DiningOut:Mexi
+WALGREEN,Walgreen's,Expenses:Convenience:Walgreen
+7-ELEVEN,7-Eleven,Expenses:Convenience:711
+VON TRIERS,Von Triers,Expenses:Food:DiningOut:Cafe
+HOL-N-ONE,Hole-n-One,Expenses:Amusement
+NINE BELOW,Nine Below,Expenses:Amusement
+BURGER KIN,Burger King,Expenses:Food:DiningOut:Burgers
+CHUBBYS,Chubby's Cheesesteak,Expenses:Food:DiningOut:Subs
+MOJANG,Mojang,Expenses:Digital:Games
+THE GARAGE,The Garage,Expenses:Food:DiningOut:Cafe
+ART BAR,Art Bar,Expenses:Food:Alcohol
+URBAN-OUTF,Urban Outfitters,Expenses:Beauty:Clothing
+TARGET,Target,Expenses:Shopping:Target
+WAL-MART,Wal-Mart,Expenses:Shopping:WalMart
+Wal-Ma,Wal-Mart,Expenses:Shopping:WalMart
+WALMART,Wal-Mart,Expenses:Shopping:WalMart
+MAIN STREE,Main Street Grocery,Expenses:Food:Grocery:MainSt
+APPLEBEES,Applebee's,Expenses:Food:DiningOut
+GREYHOUND,Greyhound,Expenses:Transport:Coach
+NEHRINGS,Sendik's,Expenses:Food:Grocery:Sendiks
+CHOCOLATE,Chocolate Chicken,Expenses:Food:DiningOut:Cafe
+DEPOSIT,Deposit,Income:Misc
+BOX LUNCH,Box Lunch,Expenses:Beauty:Clothing
+WINDSOR,Windsor,Expenses:Beauty:Clothing
+NAIL BAR,Nail Bar,Expenses:Beauty:Nails
+HI HAT,Hi Hat,Expenses:Food:Alcohol
+PANDA EXPR,Panda Express,Expenses:Food:DiningOut:Chinese
+KOHLS,Kohl's,Expenses:Beauty:Clothing
+WENDY'S,Wendy's,Expenses:Food:DiningOut:Burgers
+ATM Fee,ATM Fee,Expenses:Banking:Fee
+ATM W/D,ATM Withdrawal,Assets:Cash
+ATM TRANSACTION FEE,ATM Fee,Expenses:Banking:Fee
+MAMMOTH CA,Mammoth Cave,Expenses:Amusement

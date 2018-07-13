@@ -1,0 +1,108 @@
+MatchString,Description,Account
+"ALITHIAS, INC -PAYROLL",Alithias Inc.,Income:Paycheck:Alithias
+WITHDRAWAL,Withdrawal,Assets:Cash
+Withdrawal,Withdrawal,Assets:Cash
+COINBASE.COM-BTC,Coinbase,Assets:Digital:Crypto
+MADISON CHILDREN'S MUS,Madison Children's Museum,Expenses:Amusement:Museum
+NATIONAL HELLENIC MU,Hellenic Museum,Expenses:Amusement:Museum
+SIX FLAGS,Six Flags,Expenses:Amusement:Park
+PAPER STATEMENT FEE,Paper Statement Fee,Expenses:Banking
+GOODWILL,GoodWill,Expenses:Clothing
+KOHLS,Kohl's,Expenses:Clothing
+NIKE,Nike,Expenses:Clothing
+WALGREEN,Walgreen's,Expenses:Convenience
+AMAZON,Amazon,Expenses:Digital:Amazon
+ITUNES,Apple iTunes,Expenses:Digital:Data
+EBAY,eBay,Expenses:Digital:Ebay
+TWITCHTV,Twitch,Expenses:Digital:Entertainment
+STEAM,Steam,Expenses:Digital:Games
+FACTORIO,Factorio,Expenses:Digital:Games
+VALVE,Steam,Expenses:Digital:Games
+*GOG,Good Old Games,Expenses:Digital:Games
+TWC*TIME WARNER CABLE,Time Warner Cable,Expenses:Digital:Internet
+ETS*GRE,GRE,Expenses:Education
+COLLEGE TRANSCRIPT,Transcript,Expenses:Education
+CLARK GRAPHICS,Clark Graphics,Expenses:Education
+BOOKSTORE,Bookstore,Expenses:Education:Books
+Barnes and Nob,Barnes & Noble,Expenses:Education:Books
+OTTO'S WINE,Otto's Wine & Spirits,Expenses:Food:Alcohol
+GILBERT,Gilbert's Liquor,Expenses:Food:Alcohol
+LOST VALLEY CIDER,Lost Valley Cider,Expenses:Food:Alcohol
+Riverwest Public House,Public House,Expenses:Food:Alcohol
+Casablanca,Casablanca,Expenses:Food:Alcohol
+FORTYTWO,Forty Two Lounge,Expenses:Food:Alcohol
+COLECTIVO COFFEE,Colectivo,Expenses:Food:Coffee
+COFFEE,Coffee,Expenses:Food:Coffee
+STARBUCKS,Starbucks,Expenses:Food:Coffee
+SVENS EUROPEAN CAFE,Sven's,Expenses:Food:Coffee
+CAFE,Cafe,Expenses:Food:Coffee
+7-ELEVEN,7-Eleven,Expenses:Food:Convenience
+CULVER'S,Culver's,Expenses:Food:DiningOut:Burgers:Culvers
+JACK IN THE BOX,Jack in the Box,Expenses:Food:DiningOut:Burgers:JackBox
+MCDONALD'S,McDonald's,Expenses:Food:DiningOut:Burgers:McDonalds
+STACKED,Stacked,Expenses:Food:DiningOut:Burgers:Misc
+AJ BOMBERS,AJ Bombers,Expenses:Food:DiningOut:Burgers:Misc
+SOLLYS GRILLE,Solly's Grille,Expenses:Food:DiningOut:Burgers:Sollys
+SUPER DUPER BURGER,Super Duper Burger,Expenses:Food:DiningOut:Burgers:SuperDuperBurger
+WENDY'S,Wendy's,Expenses:Food:DiningOut:Burgers:Wendys
+WRIGHT'S,Wright's Burgers,Expenses:Food:DiningOut:Burgers:Wrights
+FIVE GUYS,Five Guys,Expenses:Food:DiningOut:Burgers:FiveGuys
+EAST GARDEN,East Garden,Expenses:Food:DiningOut:Chinese:EastGarden
+HUAN XI,Huan Xi,Expenses:Food:DiningOut:Chinese:HuanXi
+WILLIAM HO,William Ho's,Expenses:Food:DiningOut:Chinese:WilHo
+COLDSTONE,Coldstone,Expenses:Food:DiningOut:Desserts:Coldstone
+GEORGE WEBB,George Webb's,Expenses:Food:DiningOut:Diners:GeorgeWebb
+MA FISCHER,Ma Fischer's,Expenses:Food:DiningOut:Diners:MaFischers
+IHOP,IHop,Expenses:Food:DiningOut:Dinner:Ihop
+HALAL GUYS,Halal Guys,Expenses:Food:DiningOut:Ethnic:HalalGuys
+BELAIR,Belair,Expenses:Food:DiningOut:Mexi:Belair
+CHIPOTLE,Chipotle,Expenses:Food:DiningOut:Mexi:Chipotle
+QDOBA,Qdoba,Expenses:Food:DiningOut:Mexi:Qdoba
+OAKLAND GYROS,Oakland Gyros,Expenses:Food:DiningOut:MidEast:OaklandGyros
+SHAWARMA HOUSE,Shawarma House,Expenses:Food:DiningOut:MidEast:Shawarma
+DOGG HAUS,Dogg Haus,Expenses:Food:DiningOut:Misc
+3 WAYS KITCHEN,3 Ways Kitchen,Expenses:Food:DiningOut:Misc
+MEAT ON THE STREET,Meat on the Street,Expenses:Food:DiningOut:Misc
+SUMMERFEST BARS,Summerfest Bars,Expenses:Food:DiningOut:Misc
+GYRO PALACE,Gyro Palace,Expenses:Food:DiningOut:Misc
+MONGOLIAN,Mongolian Grill,Expenses:Food:DiningOut:Misc
+NOODLES & CO,Noodles & Company,Expenses:Food:DiningOut:Misc
+PEPSIVEN,Pepsi Vending Machine,Expenses:Food:DiningOut:Misc:Vending
+DOMINO,Domino's,Expenses:Food:DiningOut:Pizza:Dominos
+LISAS PIZZA,Lisa's Pizza,Expenses:Food:DiningOut:Pizza:LisasPizza
+LITTLE CAESARS,Little Caesar's,Expenses:Food:DiningOut:Pizza:LittleCaesars
+PIZZA SHUTTLE,Pizza Shuttle,Expenses:Food:DiningOut:Pizza:PizzaShuttle
+SALS PIZZA,Sal's Pizza,Expenses:Food:DiningOut:Pizza:SalsPizza
+TOPPERS PIZZA,Toppers Pizza,Expenses:Food:DiningOut:Pizza:Toppers
+COUSINS SUBS,Cousin's Subs,Expenses:Food:DiningOut:Subs:Cousins
+JIMMY JOHNS,Jimmy John's,Expenses:Food:DiningOut:Subs:JimmyJohns
+QUIZNOS,Quiznos,Expenses:Food:DiningOut:Subs:Quiznos
+SUBWAY,Subway,Expenses:Food:DiningOut:Subs:Subway
+UWM RESTAURANT OPERATIO,UWM Restaurant Ops,Expenses:Food:DiningOut:UWM
+BUFFALO WILD WINGS,Buffalo Wild Wings,Expenses:Food:DiningOut:Wings:BWW
+WINGS OVER,Wing's Over,Expenses:Food:DiningOut:Wings:WingsOver
+GLORIOSO BROTHERS,Glorioso's,Expenses:Food:Grocery:Glorioso
+KOPPAS,Koppa's,Expenses:Food:Grocery:Koppas
+METRO MARKET,Metro Market,Expenses:Food:Grocery:Metro
+PICK N SAVE,Pick'n'Save,Expenses:Food:Grocery:PickSave
+PIGGLY WIGGLY,Piggly Wiggly,Expenses:Food:Grocery:PigWig
+TRADER JOE'S,Trader Joe's,Expenses:Food:Grocery:TraderJoes
+SOYLENT,Soylent,Expenses:Food:Soylent
+PATREON,Patreon,Expenses:Gift:Donation
+NOAGENDASHO,No Agenda Show,Expenses:Gift:Donation
+Eastmore Real Es,Eastmore,Expenses:Living:Rent
+WE ENERGIES,We Energies,Expenses:Living:Utilities
+MILWAUKEE CO. TRANSIT,MCTS,Expenses:Transport:Bus:MCTS
+BADGER COACHES,Badger Coaches,Expenses:Transport:Coach
+LYFT,Lyft,Expenses:Transport:Taxi:Lyft
+UBER,Uber,Expenses:Transport:Taxi:Uber
+DIVIDEND PAID,Dividends,Income:Interest
+DEPOSIT,Deposit,Income:Misc
+KROGER RWHR -PAYROLL,Kroger,Income:Paycheck:Kroger
+ADP TOTALSOURCE -DIRECT DEP,Misix Inc.,Income:Paycheck:Misix
+UNIVERSITY OF WI -DIR DEP,UWM Phys. Datacenter,Income:Paycheck:UWM
+:CHASE,Chase Card Payment,Liabilities:Credit:Visa
+DEPT EDUCATION -STUDENT LN,Dept. Edu,Liabilities:Loan:DeptEdu
+SALLIEMAE,Sallie Mae,Liabilities:Loan:SallieMae
+"MISIX, INC. -PAYROLL",Misix Inc.,Income:Paycheck:Misix
+
